@@ -5,6 +5,25 @@ Centralized configuration and constant definitions
 
 import os
 
+# Add to config.py
+
+# ==================== LLM CONFIGURATION (GEMINI) ====================
+LLM_PROVIDER = 'gemini'  # Using Google Gemini
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')  # Store in environment variable
+GEMINI_MODEL = 'gemini-pro'  # or 'gemini-1.5-flash' for faster responses
+LLM_MAX_TOKENS = 150
+LLM_TEMPERATURE = 0.8
+LLM_REQUEST_TIMEOUT = 10  # seconds
+
+# Cache settings
+ENABLE_LLM_CACHE = True
+CACHE_SIZE_LIMIT = 1000  # Maximum cached responses
+CACHE_EXPIRY_SECONDS = 3600  # 1 hour
+
+# Rate limiting
+LLM_RATE_LIMIT_CALLS = 60  # Max calls per minute (Gemini free tier: 60 RPM)
+LLM_RATE_LIMIT_WINDOW = 60  # seconds
+
 # ==================== SCREEN & UI CONSTANTS ====================
 SCREEN_WIDTH = 1400
 SCREEN_HEIGHT = 900
