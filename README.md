@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # beta Bot- Chess
 Core Architecture Overview
 Hierarchical Decision-Making System:

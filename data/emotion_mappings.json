@@ -1,0 +1,17 @@
+{
+  "under_attack_high_value": "SCARED",
+  "under_attack_low_value": "ANXIOUS",
+  "captured_enemy_piece": "PROUD",
+  "supporting_ally": "CONFIDENT",
+  "isolated": "ANXIOUS",
+  "about_to_promote": "EXCITED",
+  "in_winning_position": "HAPPY",
+  "in_losing_position": "SAD",
+  "forced_sacrifice": "RESIGNED",
+  "heroic_defense": "DETERMINED",
+  "surrounded_by_enemies": "DESPERATE",
+  "protected_by_allies": "CONFIDENT",
+  "center_control": "PROUD",
+  "pinned_piece": "ANXIOUS",
+  "forking_opportunity": "EXCITED"
+}

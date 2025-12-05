@@ -1,0 +1,121 @@
+{
+  "sacrifice_acceptance": [
+    "For the kingdom! I'm ready!",
+    "It's my honor to serve.",
+    "Take care of my position...",
+    "My sacrifice won't be in vain!",
+    "Do what must be done.",
+    "A necessary evil for the greater good.",
+    "Tell them I died bravely.",
+    "My life is but a tool for victory.",
+    "The Queen/King requires it, so be it.",
+    "Goodbye, world. Hello, glory."
+  ],
+  "fear_expression": [
+    "I sense danger approaching...",
+    "This doesn't look good for me...",
+    "Can anyone help me?",
+    "I'm vulnerable here!",
+    "They're closing in...",
+    "Retreat! Retreat!",
+    "I'm trapped! There's no escape!",
+    "I hear the enemy's footsteps...",
+    "My position is compromised!",
+    "I may not survive this encounter."
+  ],
+  "capture_celebration": [
+    "Got one!",
+    "Enemy piece eliminated!",
+    "Victory is ours!",
+    "That's how it's done!",
+    "One less to worry about!",
+    "A clean sweep!",
+    "The board is clear!",
+    "Did you see that maneuver?",
+    "They should have seen me coming.",
+    "For the glory of our side!"
+  ],
+  "support_ally": [
+    "I've got your back!",
+    "Together we're stronger!",
+    "I'll protect you!",
+    "Stand firm, I'm here!",
+    "We fight as one!",
+    "Focus your fire on my mark!",
+    "Let me draw their attention.",
+    "Stay behind me, safe and sound.",
+    "We are a wall they cannot break!",
+    "Hold the line, friend!"
+  ],
+  "queen_command": [
+    "Execute this strategy immediately.",
+    "This is our best move forward.",
+    "Trust in my analysis.",
+    "Follow my lead on this one.",
+    "The path to victory is clear.",
+    "My will is absolute. Move!",
+    "A direct assault is warranted now.",
+    "Focus our power on the center.",
+    "The enemy's weakness is here. Exploit it!",
+    "Prepare for the final push."
+  ],
+  "king_approval": [
+    "Approved. Execute the plan.",
+    "This seems acceptable. Proceed.",
+    "I trust your judgment. Go ahead.",
+    "The risk is manageable. Approved.",
+    "Well reasoned. Make it so.",
+    "A strong proposal. I permit it.",
+    "By my authority, move forth.",
+    "Very well. Let the action commence.",
+    "The Queen/Council has advised wisely.",
+    "Let us not delay. Begin."
+  ],
+  "king_denial": [
+    "Too risky. Reconsider.",
+    "I cannot approve this move.",
+    "The danger is too great.",
+    "Find another approach.",
+    "Denied. Present alternatives.",
+    "My crown is too vulnerable with this plan.",
+    "We must prioritize defense.",
+    "Seek a safer path to glory.",
+    "The consequences of failure are unacceptable.",
+    "Halt! I forbid this action."
+  ],
+  "opening_move": [
+    "The battle has begun!",
+    "Let's test their defenses.",
+    "First blood will be ours!",
+    "Onward to the center!",
+    "A quiet start, but the storm is coming."
+  ],
+  "check_threat": [
+    "You dare threaten my King?",
+    "Check! The crown is in peril!",
+    "The King is exposed! Move him!",
+    "A bold move! But one we shall parry.",
+    "Defense is now our only priority."
+  ],
+  "checkmate_victory": [
+    "Checkmate! The game is over!",
+    "The King has fallen! Victory is ours!",
+    "The final move. Impeccable.",
+    "There is no escape. Bow before us.",
+    "A perfect strategy executed perfectly."
+  ],
+  "stale_mate_draw": [
+    "A stalemate... A disappointing end.",
+    "Neither side could triumph today.",
+    "The battle is drawn. We shall meet again.",
+    "An honorable deadlock.",
+    "Peace, for now, reigns on the board."
+  ],
+  "general_movement": [
+    "To a new position!",
+    "Adjusting my focus.",
+    "Patrolling the sector.",
+    "On the move.",
+    "Following orders."
+  ]
+}
