@@ -1,0 +1,6 @@
+2025-12-06 02:04:31 - main - INFO - ============================================================
+2025-12-06 02:04:31 - main - INFO - β-bot: Multi-Agent Chess AI Starting
+2025-12-06 02:04:31 - main - INFO - ============================================================
+2025-12-06 02:04:31 - main - ERROR - Configuration errors found:
+2025-12-06 02:04:31 - main - ERROR -   - OpenAI API key not set. Set OPENAI_API_KEY environment variable.
+2025-12-06 02:04:31 - main - INFO - Pygame initialized successfully
