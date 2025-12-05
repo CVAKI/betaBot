@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # beta Bot- Chess
 Core Architecture Overview
 Hierarchical Decision-Making System:
@@ -955,3 +956,6 @@ Purpose: API documentation for developers
 | notebooks/ | Interactive development and analysis |
 | docs/ | Additional technical documentation |
 
+=======
+# betaBot
+>>>>>>> 2e64a07a7c16ee33f54c61cbc2e00969b5285994
