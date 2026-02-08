@@ -1,0 +1,12 @@
+2025-12-06 03:22:10 - main - INFO - ============================================================
+2025-12-06 03:22:10 - main - INFO - β-bot: Multi-Agent Chess AI Starting
+2025-12-06 03:22:10 - main - INFO - ============================================================
+2025-12-06 03:22:11 - main - INFO - Pygame initialized successfully
+2025-12-06 03:22:11 - main - INFO - Game initialized successfully
+2025-12-06 03:22:11 - main - INFO - Entering main game loop
+2025-12-06 03:22:14 - main - INFO - Quit event received
+2025-12-06 03:22:14 - main - INFO - Shutting down...
+2025-12-06 03:22:14 - main - INFO - Game manager cleaned up
+2025-12-06 03:22:14 - main - INFO - Pygame quit successfully
+2025-12-06 03:22:14 - main - INFO - β-bot shutdown complete
+2025-12-06 03:22:14 - main - INFO - ============================================================

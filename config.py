@@ -4,43 +4,43 @@ Centralized configuration and constant definitions
 """
 
 import os
+from dotenv import load_dotenv
 
-# Add to config.py
+# Load environment variables from .env file
+load_dotenv()
+# ==================== ADD THESE LINES TO THE END OF config.py ====================
 
-# ==================== LLM CONFIGURATION (GEMINI) ====================
-LLM_PROVIDER = 'gemini'  # Using Google Gemini
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')  # Store in environment variable
-GEMINI_MODEL = 'gemini-pro'  # or 'gemini-1.5-flash' for faster responses
-LLM_MAX_TOKENS = 150
-LLM_TEMPERATURE = 0.8
-LLM_REQUEST_TIMEOUT = 10  # seconds
+# ==================== ENHANCED LLM CONFIGURATION ====================
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')
+GEMINI_MODEL = 'gemini-1.5-flash'
+LLM_TEMPERATURE = 0.9
+LLM_MAX_TOKENS = 100
 
-# Cache settings
-ENABLE_LLM_CACHE = True
-CACHE_SIZE_LIMIT = 1000  # Maximum cached responses
-CACHE_EXPIRY_SECONDS = 3600  # 1 hour
+# ==================== ENHANCED UI CONFIGURATION ====================
+USE_FULLSCREEN = False  # Set to True for fullscreen mode
 
-# Rate limiting
-LLM_RATE_LIMIT_CALLS = 60  # Max calls per minute (Gemini free tier: 60 RPM)
-LLM_RATE_LIMIT_WINDOW = 60  # seconds
+# Make sure 'os' is imported at the top of config.py
+# If you see "NameError: name 'os' is not defined", add this at the very top:
+# import os
 
 # ==================== SCREEN & UI CONSTANTS ====================
-SCREEN_WIDTH = 1400
-SCREEN_HEIGHT = 900
-BOARD_SIZE = 800  # Square board area
-CHAT_PANEL_WIDTH = 600
+# Adjusted for better display on most monitors
+SCREEN_WIDTH = 1200
+SCREEN_HEIGHT = 800
+BOARD_SIZE = 640  # 8x8 board (80 pixels per square)
+CHAT_PANEL_WIDTH = 500
 FPS = 60
 
 # Board dimensions
 BOARD_ROWS = 8
 BOARD_COLS = 8
-SQUARE_SIZE = BOARD_SIZE // BOARD_ROWS  # 100 pixels per square
+SQUARE_SIZE = BOARD_SIZE // BOARD_ROWS  # 80 pixels per square
 
 # UI Layout
-BOARD_OFFSET_X = 50
-BOARD_OFFSET_Y = 50
-CHAT_PANEL_X = BOARD_SIZE + BOARD_OFFSET_X + 50
-CHAT_PANEL_Y = 50
+BOARD_OFFSET_X = 20
+BOARD_OFFSET_Y = 80
+CHAT_PANEL_X = BOARD_SIZE + BOARD_OFFSET_X + 20
+CHAT_PANEL_Y = 80
 
 # ==================== COLORS ====================
 # Board colors
@@ -84,6 +84,23 @@ IQ_RANGES = {
     'pawn': {'min': 1.0, 'max': 4.99, 'default': 3.0}
 }
 
+# ==================== LLM CONFIGURATION (GEMINI) ====================
+LLM_PROVIDER = 'gemini'  # Using Google Gemini
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')  # Load from .env file
+GEMINI_MODEL = 'gemini-pro'  # or 'gemini-1.5-flash' for faster responses
+LLM_MAX_TOKENS = 150
+LLM_TEMPERATURE = 0.8
+LLM_REQUEST_TIMEOUT = 10  # seconds
+
+# Cache settings
+ENABLE_LLM_CACHE = True
+CACHE_SIZE_LIMIT = 1000
+CACHE_EXPIRY_SECONDS = 3600
+
+# Rate limiting
+LLM_RATE_LIMIT_CALLS = 60
+LLM_RATE_LIMIT_WINDOW = 60
+
 # ==================== NEURAL NETWORK CONFIGS ====================
 NN_CONFIGS = {
     'queen': {
@@ -124,20 +141,16 @@ NN_CONFIGS = {
     }
 }
 
-# Neural network input size (8x8 board with 12 piece types)
-NN_INPUT_SIZE = 768  # 64 squares * 12 channels (6 piece types * 2 colors)
+NN_INPUT_SIZE = 768
 
 # ==================== GAME RULES ====================
 KING_MAX_VETOES = 3
 CASTLING_ENABLED = True
 EN_PASSANT_ENABLED = True
 PAWN_PROMOTION_ENABLED = True
-
-# Proximity communication distance (in squares)
 COMMUNICATION_RADIUS = 2
 
 # ==================== FILE PATHS ====================
-# Base directories
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ASSETS_DIR = os.path.join(BASE_DIR, 'assets')
 DATA_DIR = os.path.join(BASE_DIR, 'data')
@@ -153,7 +166,7 @@ EMOJIS_DIR = os.path.join(ASSETS_DIR, 'emojis')
 UI_DIR = os.path.join(ASSETS_DIR, 'ui')
 SOUNDS_DIR = os.path.join(ASSETS_DIR, 'sounds')
 
-# Piece image files (500x500 pixels)
+# Piece image files
 PIECE_IMAGES = {
     'white': {
         'king': os.path.join(WHITE_PIECES_DIR, 'king.png'),
@@ -173,10 +186,9 @@ PIECE_IMAGES = {
     }
 }
 
-# Board image (7000x7000 pixels - will be scaled down)
 BOARD_IMAGE = os.path.join(BOARD_DIR, 'board.png')
 
-# Emoji files (24x24 or 32x32 pixels)
+# Emoji files
 EMOJI_FILES = {
     'HAPPY': os.path.join(EMOJIS_DIR, 'happy.png'),
     'SAD': os.path.join(EMOJIS_DIR, 'sad.png'),
@@ -195,34 +207,19 @@ DIALOGUE_TEMPLATES_FILE = os.path.join(DATA_DIR, 'dialogue_templates.json')
 EMOTION_MAPPINGS_FILE = os.path.join(DATA_DIR, 'emotion_mappings.json')
 IQ_CONFIGS_FILE = os.path.join(DATA_DIR, 'iq_configurations.json')
 
-# Log files
+# Log directories
 GAME_LOGS_DIR = os.path.join(LOGS_DIR, 'game_logs')
 CHAT_LOGS_DIR = os.path.join(LOGS_DIR, 'chat_logs')
 ERROR_LOGS_DIR = os.path.join(LOGS_DIR, 'error_logs')
 
-# ==================== LLM CONFIGURATION ====================
-# LLM API settings (configure based on your provider)
-LLM_PROVIDER = 'openai'  # Options: 'openai', 'huggingface', 'local'
-LLM_API_KEY = os.getenv('OPENAI_API_KEY', '')  # Store in environment variable
-LLM_MODEL = 'gpt-3.5-turbo'  # Or 'gpt-4', 'gpt-2', etc.
-LLM_MAX_TOKENS = 150
-LLM_TEMPERATURE = 0.8
-LLM_REQUEST_TIMEOUT = 10  # seconds
-
-# Cache settings
-ENABLE_LLM_CACHE = True
-CACHE_SIZE_LIMIT = 1000  # Maximum cached responses
-
 # ==================== PERFORMANCE SETTINGS ====================
-# AI thinking time limits (seconds)
 MAX_PIECE_THINK_TIME = 2.0
 MAX_QUEEN_SYNTHESIS_TIME = 5.0
 MAX_KING_VALIDATION_TIME = 3.0
 
-# Animation settings
-MOVE_ANIMATION_DURATION = 0.5  # seconds
-CAPTURE_ANIMATION_DURATION = 0.3  # seconds
-EMOTION_ANIMATION_DURATION = 0.2  # seconds
+MOVE_ANIMATION_DURATION = 0.5
+CAPTURE_ANIMATION_DURATION = 0.3
+EMOTION_ANIMATION_DURATION = 0.2
 
 # ==================== FONT SETTINGS ====================
 FONT_TITLE = 'Arial'
@@ -244,14 +241,13 @@ SHOW_AI_THINKING = True
 VERBOSE_LOGGING = False
 
 # ==================== TRAINING SETTINGS ====================
-TRAINING_ENABLED = False  # Set to True for model training
+TRAINING_ENABLED = False
 BATCH_SIZE = 32
 EPOCHS = 100
 VALIDATION_SPLIT = 0.2
-CHECKPOINT_FREQUENCY = 10  # Save model every N epochs
+CHECKPOINT_FREQUENCY = 10
 
 # ==================== PERSONALITY TRAITS ====================
-# Default personality values (0.0 to 1.0)
 DEFAULT_PERSONALITIES = {
     'queen': {
         'confidence': 0.95,
@@ -297,57 +293,60 @@ DEFAULT_PERSONALITIES = {
     }
 }
 
-# ==================== PIECE VALUES (Material) ====================
+# ==================== PIECE VALUES ====================
 PIECE_VALUES = {
     'pawn': 1,
     'knight': 3,
     'bishop': 3,
     'rook': 5,
     'queen': 9,
-    'king': 0  # King is invaluable
+    'king': 0
 }
-
 
 # ==================== UTILITY FUNCTIONS ====================
 def create_directories():
-    """Create all necessary directories if they don't exist"""
+    """Create all necessary directories"""
     directories = [
         ASSETS_DIR, PIECES_DIR, WHITE_PIECES_DIR, BLACK_PIECES_DIR,
         BOARD_DIR, EMOJIS_DIR, UI_DIR, SOUNDS_DIR,
         DATA_DIR, LOGS_DIR, GAME_LOGS_DIR, CHAT_LOGS_DIR,
         ERROR_LOGS_DIR, MODELS_DIR
     ]
-
     for directory in directories:
         os.makedirs(directory, exist_ok=True)
-
 
 def get_piece_iq(piece_type, randomize=True):
     """Get IQ value for a piece type"""
     import random
     config = IQ_RANGES.get(piece_type.lower())
     if not config:
-        return 5.0  # Default fallback
-
+        return 5.0
     if randomize:
         return random.uniform(config['min'], config['max'])
     return config['default']
-
 
 def validate_config():
     """Validate configuration settings"""
     errors = []
 
-    # Check if API key is set if using OpenAI
-    if LLM_PROVIDER == 'openai' and not LLM_API_KEY:
-        errors.append("OpenAI API key not set. Set OPENAI_API_KEY environment variable.")
-
-    # Check if asset directories exist
-    if not os.path.exists(ASSETS_DIR):
-        errors.append(f"Assets directory not found: {ASSETS_DIR}")
+    # Check Gemini API key
+    if LLM_PROVIDER == 'gemini':
+        if not GEMINI_API_KEY:
+            errors.append("Gemini API key not found in .env file. Dialogue generation will use fallbacks.")
+        else:
+            # Validate key format (basic check)
+            if not GEMINI_API_KEY.startswith('AIza'):
+                errors.append("Gemini API key format appears invalid. Should start with 'AIza'.")
+            else:
+                errors.append(f"✅ Gemini API key loaded successfully (ending in ...{GEMINI_API_KEY[-8:]})")
 
     return errors
 
-
 # Create directories on import
 create_directories()
+
+# Print API key status on import (for debugging)
+if __name__ == "__main__":
+    print(f"Gemini API Key loaded: {'Yes' if GEMINI_API_KEY else 'No'}")
+    if GEMINI_API_KEY:
+        print(f"Key preview: {GEMINI_API_KEY[:10]}...{GEMINI_API_KEY[-8:]}")

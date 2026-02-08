@@ -1,6 +1,5 @@
 """
-Board Renderer
-Draws the chess board
+Board Renderer with Move Highlights
 """
 
 import pygame
@@ -9,7 +8,7 @@ import os
 
 
 class BoardRenderer:
-    """Renders the chess board"""
+    """Renders the chess board with highlights"""
 
     def __init__(self):
         """Initialize board renderer"""
@@ -28,8 +27,14 @@ class BoardRenderer:
         else:
             self.has_image = False
 
-    def draw_board(self, screen):
-        """Draw the chess board"""
+    def draw_board(self, screen, highlights=None):
+        """
+        Draw the chess board with optional highlights
+
+        Args:
+            screen: Pygame screen surface
+            highlights: Dictionary with 'selected', 'legal_moves', 'last_move'
+        """
         if self.has_image:
             # Draw loaded image
             screen.blit(self.board_image,
@@ -37,6 +42,10 @@ class BoardRenderer:
         else:
             # Draw board with colored squares
             self._draw_squares(screen)
+
+        # Draw highlights on top of board
+        if highlights:
+            self._draw_highlights(screen, highlights)
 
         # Draw coordinates
         self._draw_coordinates(screen)
@@ -55,6 +64,58 @@ class BoardRenderer:
                 # Draw square
                 rect = pygame.Rect(x, y, config.SQUARE_SIZE, config.SQUARE_SIZE)
                 pygame.draw.rect(screen, color, rect)
+
+    def _draw_highlights(self, screen, highlights):
+        """Draw highlighted squares"""
+        # Draw last move highlight
+        if highlights.get('last_move'):
+            last_move = highlights['last_move']
+            self._draw_square_highlight(screen, last_move['from'], (255, 255, 0, 80))
+            self._draw_square_highlight(screen, last_move['to'], (255, 255, 0, 80))
+
+        # Draw selected piece highlight
+        if highlights.get('selected'):
+            self._draw_square_highlight(screen, highlights['selected'], (100, 200, 255, 120))
+
+        # Draw legal move indicators
+        if highlights.get('legal_moves'):
+            for move_pos in highlights['legal_moves']:
+                self._draw_move_indicator(screen, move_pos)
+
+    def _draw_square_highlight(self, screen, position, color):
+        """Draw a colored highlight on a square"""
+        if not position:
+            return
+
+        row, col = position
+        x = config.BOARD_OFFSET_X + col * config.SQUARE_SIZE
+        y = config.BOARD_OFFSET_Y + row * config.SQUARE_SIZE
+
+        # Create semi-transparent surface
+        highlight_surface = pygame.Surface((config.SQUARE_SIZE, config.SQUARE_SIZE))
+        highlight_surface.set_alpha(color[3] if len(color) > 3 else 128)
+        highlight_surface.fill(color[:3])
+
+        screen.blit(highlight_surface, (x, y))
+
+        # Draw border
+        rect = pygame.Rect(x, y, config.SQUARE_SIZE, config.SQUARE_SIZE)
+        pygame.draw.rect(screen, color[:3], rect, 3)
+
+    def _draw_move_indicator(self, screen, position):
+        """Draw a circle indicator for legal moves"""
+        row, col = position
+        x = config.BOARD_OFFSET_X + col * config.SQUARE_SIZE + config.SQUARE_SIZE // 2
+        y = config.BOARD_OFFSET_Y + row * config.SQUARE_SIZE + config.SQUARE_SIZE // 2
+
+        # Draw semi-transparent circle
+        circle_surface = pygame.Surface((config.SQUARE_SIZE, config.SQUARE_SIZE), pygame.SRCALPHA)
+        pygame.draw.circle(circle_surface, (0, 255, 0, 100),
+                          (config.SQUARE_SIZE // 2, config.SQUARE_SIZE // 2),
+                          config.SQUARE_SIZE // 6)
+
+        screen.blit(circle_surface,
+                   (x - config.SQUARE_SIZE // 2, y - config.SQUARE_SIZE // 2))
 
     def _draw_coordinates(self, screen):
         """Draw file and rank labels"""

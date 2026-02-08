@@ -1,0 +1,29 @@
+2025-12-06 02:30:37 - main - INFO - ============================================================
+2025-12-06 02:30:37 - main - INFO - β-bot: Multi-Agent Chess AI Starting
+2025-12-06 02:30:37 - main - INFO - ============================================================
+2025-12-06 02:30:38 - main - INFO - Pygame initialized successfully
+2025-12-06 02:30:38 - main - INFO - Game initialized successfully
+2025-12-06 02:30:38 - main - INFO - Entering main game loop
+2025-12-06 02:31:46 - main - INFO - Game PAUSED
+2025-12-06 02:31:47 - main - INFO - Game RESUMED
+2025-12-06 02:31:48 - main - INFO - Game PAUSED
+2025-12-06 02:31:48 - main - INFO - Game RESUMED
+2025-12-06 02:31:50 - main - INFO - Game PAUSED
+2025-12-06 02:31:51 - main - INFO - Game RESUMED
+2025-12-06 02:31:51 - main - INFO - Game PAUSED
+2025-12-06 02:31:51 - main - INFO - Game RESUMED
+2025-12-06 02:31:52 - main - INFO - Game PAUSED
+2025-12-06 02:31:52 - main - INFO - Game RESUMED
+2025-12-06 02:31:53 - main - INFO - Game PAUSED
+2025-12-06 02:31:53 - main - INFO - Game RESUMED
+2025-12-06 02:32:02 - main - INFO - FPS display: OFF
+2025-12-06 02:32:03 - main - INFO - FPS display: ON
+2025-12-06 02:32:08 - main - INFO - Reset game requested
+2025-12-06 02:32:08 - main - INFO - Reset game requested
+2025-12-06 02:32:09 - main - INFO - Reset game requested
+2025-12-06 02:32:44 - main - INFO - Quit event received
+2025-12-06 02:32:44 - main - INFO - Shutting down...
+2025-12-06 02:32:44 - main - INFO - Game manager cleaned up
+2025-12-06 02:32:44 - main - INFO - Pygame quit successfully
+2025-12-06 02:32:44 - main - INFO - β-bot shutdown complete
+2025-12-06 02:32:44 - main - INFO - ============================================================
