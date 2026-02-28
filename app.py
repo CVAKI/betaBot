@@ -150,7 +150,7 @@ class StubGameManager:
         for piece in active:
             for mv in self._moves(piece):
                 t=self.board.get_piece_at(*mv)
-                cands.append((t.get_value()*12 if t else 0)+random.random(), piece, mv)
+                cands.append(((t.get_value()*12 if t else 0)+random.random(), piece, mv))
         if not cands: return
         cands.sort(reverse=True)
         _,piece,mv = cands[0]
