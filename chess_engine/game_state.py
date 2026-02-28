@@ -2,6 +2,7 @@ class GameState:
     def __init__(self):
         self.current_player = 'white'
         self.move_history = []
+        self.move_count = 0
         self.castling_rights = {
             'white_kingside': True,
             'white_queenside': True,
